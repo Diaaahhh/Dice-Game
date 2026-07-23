@@ -1,0 +1,23 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav{
+display: flex;
+gap: 35px;
+padding: 20px;
+/* align-items: center; */
+background-color: black;
+color: white;
+}
+
+a {
+  color: aliceblue;
+  text-decoration: none;
+  
+}
+.red{
+  background-color: red;
+}
