@@ -1,0 +1,28 @@
+
+/* .container {
+  background-color: aqua; 
+  padding: 16% 8%;
+} */
+.wrapper {
+  /* background-color: burlywood; */
+  display: flex;
+}
+.left_col {
+  /* background-color: black; */
+  flex: 1;
+}
+.right_col {
+  /* background-color: blue; */
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+/* .right_content {
+  background-color: chartreuse;
+} */
+.title {
+  /* background-color: blueviolet; */
+  font-size: 59px;
+  font-weight: 700;
+}
+
