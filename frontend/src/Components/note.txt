@@ -1,0 +1,62 @@
+// js map:
+
+let arr= [20, 25, 30];
+let newArr= arr.map((value, index, array)=>{
+console.log(value, index, array) // 20, 0, [20, 25, 30]......
+return ++value;
+})
+console.log(newArr); // [21, 26, 31]
+
+// rendering list in React:
+const poducts= [{
+  id: 1,
+  title: "Laptop",
+  price: 50000.00
+}, 
+{
+  id: 2,
+  title: "Tablet",
+  price: 40000.00
+}, 
+{
+  id: 3,
+  title: "Smartphone",
+  price: 30000.00
+}]
+
+return(
+  <div>
+  <h1> The Product List </h1>
+  {
+    products.map((product)=>{
+      return(
+        <div key={product.id}> // key has to be in outermost iterative element 
+        <h3> {product.title} <h3>
+        <p> Price: ${product.price} </p> 
+        </div>
+      )
+    })
+  }
+  
+  </div>
+
+)
+
+// js object:
+
+const person1= {
+  name: "Dia",
+  age: 26,
+  isEmployed: true,
+  sayHello: ()=>{
+    conole.log("Hi from Dia")
+  }
+}
+
+person1.sayHello();
+
+// Structure of onClick={}:
+
+onClick={()=>{setShow(true)}}; // write function here 
+onClick={()=>{hadleSelect(value)}} // call another function
+

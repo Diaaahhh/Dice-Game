@@ -5,6 +5,7 @@ import Navbar from './Components/Test/Navbar.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Profile from './Components/Test/Profile.jsx'
 import UseState from './Components/Test/UseState.jsx'
+import ObjectJS from './Components/Test/ObjectJS.jsx'
 
 const App = () => {
   const router= createBrowserRouter([
@@ -23,8 +24,10 @@ const App = () => {
   ])
   return (
     <div>
-      <UseState/>
+      {/* <UseState/> */}
+      {/* <ObjectJS/> */}
       <RouterProvider router={router}/>
+      
     </div>
   )
 }

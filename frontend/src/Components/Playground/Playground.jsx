@@ -4,6 +4,10 @@ import "../../App.css";
 import one from "../../assets/one.png";
 const Playground = () => {
   const [showRules, setShowRules] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null);
+  const handleSelect= (value)=>{
+    setSelectedValue(value);
+  }
   return (
     <div>
       <div className="container">
@@ -15,24 +19,13 @@ const Playground = () => {
             </div>
             <div className="numbers">
               <div className="number_wrapper">
-                <div className="cover selected">
-                  <div className="dice_plain one ">1</div>
-                </div>
-                <div className="cover">
-                  <div className="dice_plain two">2</div>
-                </div>
-                <div className="cover">
-                  <div className="dice_plain three">3</div>
-                </div>
-                <div className="cover">
-                  <div className="dice_plain four">4</div>
-                </div>
-                <div className="cover">
-                  <div className="dice_plain five">5</div>
-                </div>
-                <div className="cover">
-                  <div className="dice_plain six">6</div>
-                </div>
+                {[1, 2, 3, 4, 5, 6].map((value) => {
+                  return (
+                    <div className={`cover ${selectedValue===value?"selected":""}`}  key={value}>
+                      <div className="dice_plain" onClick={()=>{handleSelect(value)}}>{value}</div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
