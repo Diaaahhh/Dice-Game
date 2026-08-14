@@ -21,12 +21,22 @@
 }
 .numbers{
   /* background-color: chartreuse; */
+  padding: 10px;
 }
 .number_wrapper{
   /* background-color: aqua; */
 display: flex;
 gap: 15px;
-height: 50%;
+height: 90%;
+}
+.cover{
+  /* background-color: antiquewhite; */
+  padding: 3px;
+  display: flex;
+  align-items: center;
+}
+.selected{
+  border: 2px solid rgb(0, 195, 255);
 }
 .dice_plain{
   border: solid black 1px;

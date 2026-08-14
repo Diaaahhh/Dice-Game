@@ -2,6 +2,8 @@ import React from "react";
 import "../Home/HomePage.css";
 import "../../App.css";
 import homedice from "../../assets/homedice.png";
+// import { Link } from "react-router-dom";
+
 const HomePage = () => {
   return (
     <div className="container">
@@ -13,7 +15,9 @@ const HomePage = () => {
           <div className="right_content">
             <div className="title">DICE GAME</div>
             <div className="play_btn">
-              <button>Play Now</button>
+              <button>
+                <a href="/playground">Play Now</a>
+              </button>
             </div>
           </div>
         </div>
