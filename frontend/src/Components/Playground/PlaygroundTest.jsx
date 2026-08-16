@@ -64,12 +64,12 @@ const Playground = () => {
         <div className="pg_wrapper">
           <div className="header">
             <div className="score">
-              <div className="score_marks">{score}</div> //Show Score
+              <div className="score_marks">{score}</div>
               <div className="score_footer">Total Score</div>
             </div>
             <div className="numbers">
-              <div className="number_wrapper">  //number boxes
-                {[1, 2, 3, 4, 5].map((number) => (
+              <div className="number_wrapper">
+                {[1, 2, 3, 4, 5, 6].map((number) => (
                   <div
                     key={number}
                     className={`cover ${selectedNumber === number ? "selected" : ""}`}
@@ -85,7 +85,7 @@ const Playground = () => {
           </div>
           
           <div className="dice_box">
-            <div className="dice" onClick={rollDice}> //roll Dice
+            <div className="dice" onClick={rollDice}>
               <img src={diceImages[currentDice]} alt="dice_piece" />
               <p>Click on Dice to Roll</p>
             </div>
@@ -97,7 +97,7 @@ const Playground = () => {
               </button>
             </div>
           </div>
-          // Show rules
+          
           {showRules && (
             <div className="rules">
               <p>

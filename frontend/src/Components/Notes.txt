@@ -1,4 +1,0 @@
- //  Visibility of a Div
- 1. const [show, setShow]= useState(false);
- 2. <button onClick={()=>{setShow(!show)}}>Show me</button>
- 3. { show && <div></div> }

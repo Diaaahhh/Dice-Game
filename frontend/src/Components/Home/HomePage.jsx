@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../Home/HomePage.css";
 import "../../App.css";
 import homedice from "../../assets/homedice.png";
+// import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -15,9 +16,9 @@ const HomePage = () => {
           <div className="right_content">
             <div className="title">DICE GAME</div>
             <div className="play_btn">
-              <Link to="/playground">
-                <button>Play Now</button>
-              </Link>
+              <button>
+                <a href="/playground">Play Now</a>
+              </button>
             </div>
           </div>
         </div>

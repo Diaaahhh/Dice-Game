@@ -4,28 +4,30 @@ import PlayGround from './Components/Playground/Playground.jsx'
 import Navbar from './Components/Test/Navbar.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Profile from './Components/Test/Profile.jsx'
+import UseState from './Components/Test/UseState.jsx'
+import ObjectJS from './Components/Test/ObjectJS.jsx'
 
 const App = () => {
   const router= createBrowserRouter([
     {
       path: "/",
-      element: <><Navbar/><HomePage/></>
+      element: <HomePage/>
     },
     {
       path: "/playground",
-      element: <><Navbar/><PlayGround/></>
+      element: <PlayGround/>
     },
-    {
-      path: "/user/:userName",
-      element: <><Navbar/><Profile/></>
-    }
+    // {
+    //   path: "/user/:userName",
+    //   element: <><Navbar/><Profile/></>
+    // }
   ])
   return (
     <div>
-      {/* <HomePage/> */}
-      {/* <PlayGround/> */}
-      
+      {/* <UseState/> */}
+      {/* <ObjectJS/> */}
       <RouterProvider router={router}/>
+      
     </div>
   )
 }
