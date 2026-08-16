@@ -12,32 +12,45 @@ const Playground = () => {
   const [showRules, setShowRules] = useState(false);
   const [selectedValue, setSelectedValue] = useState(null);
   const [diceValue, setDiceValue] = useState(1);
-  const handleSelect= (value)=>{
-    setSelectedValue(value);
-  }
-  const handleDice= ()=>{
-    let random= Math.floor(Math.random()*6)+1;
-    setDiceValue(random);
-    console.log(random);
-    console.log(diceNumbers[random]);
-    handleScore();
-  }
-  const handleScore= ()=>{
-    if (selectedValue===diceValue) {
-        console.log("win");
-        
-    } else {
-        console.log("lost");
-    }
-  }
+  const [score, setScore] = useState(0);
+  const [flag, setFlag] = useState(0);
 
-  const diceNumbers= {
+  const handleSelect = (value) => {
+    setSelectedValue(value);
+    setFlag(1);
+  };
+
+  const handleDice = () => {
+    let result;
+    let random = Math.floor(Math.random() * 6) + 1;
+    setDiceValue(random);
+    if (selectedValue === random) {
+      result = score + random;
+    } else {
+      result = score - 2;
+    }
+
+    if (result <= 0) {
+      setScore(0);
+    } else {
+      setScore(result);
+    }
+    setFlag(0);
+  };
+  const handleReset = () => {
+    setScore(0);
+    setDiceValue(1);
+    setFlag(0);
+    setSelectedValue(null);
+  };
+
+  const diceNumbers = {
     1: one,
     2: two,
     3: three,
     4: four,
     5: five,
-    6: six
+    6: six,
   };
 
   return (
@@ -46,15 +59,26 @@ const Playground = () => {
         <div className="pg_wrapper">
           <div className="header">
             <div className="score">
-              <div className="score_marks">0</div>
+              <div className="score_marks">{score}</div>
               <div className="score_footer">Total Score</div>
             </div>
             <div className="numbers">
               <div className="number_wrapper">
                 {[1, 2, 3, 4, 5, 6].map((value) => {
                   return (
-                    <div className={`cover ${selectedValue===value?"selected":""}`}  key={value}>
-                      <div className="dice_plain" onClick={()=>{handleSelect(value)}}>{value}</div>
+                    <div
+                      className={`cover ${selectedValue === value ? "selected" : ""}`}
+                      key={value}
+                    >
+                      <div
+                        className="dice_plain"
+                        disabled={flag != 0}
+                        onClick={() => {
+                          handleSelect(value);
+                        }}
+                      >
+                        {value}
+                      </div>
                     </div>
                   );
                 })}
@@ -62,12 +86,28 @@ const Playground = () => {
             </div>
           </div>
           <div className="dice_box">
-            <div className="dice" onClick={()=>{handleDice()}}>
+            <div
+              className="dice"
+              onClick={
+                flag === 1
+                  ? () => {
+                      handleDice();
+                    }
+                  : undefined
+              }
+            >
               <img src={diceNumbers[diceValue]} alt="dice_piece" />
               <p>Click on Dice to Roll</p>
             </div>
             <div className="buttons">
-              <button className="white">Reset Score</button>
+              <button
+                className="white"
+                onClick={() => {
+                  handleReset();
+                }}
+              >
+                Reset Score
+              </button>
               <button
                 className="black"
                 onClick={() => {
@@ -96,6 +136,5 @@ const Playground = () => {
     </div>
   );
 };
-
 
 export default Playground;
